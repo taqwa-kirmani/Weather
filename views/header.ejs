@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Weather app</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/bb0ae03f5c.js" crossorigin="anonymous"></script>
+
+<body>
+
+  <div class="app-wrap">
+     <main>
+      <div class="current">
+        <a id="link" href="/"><div class="temp">Weather App</div></a>
+
+    </div>
+    </main>
+    <header>
+      <form class="aquiringlocation" id="formadduser" method='post' action='/'>
+        <input type="text" autocomplete="off" class="search-box" placeholder="Location..." name="locationName" required />
+      <div class='wrapper'>
+        <button class="h bttn" id="bt1" type="submit">Current</button>
+        <button class="h bttn" id="bt2" type="submit">Weekly<br></button>
+
+
+      </div>
+    </form>
+
+
+  </header>
+
+
+
+<div class="det">
+ <P style="text-align: center"> <%=message%></P>
+   <P id="place"><%=name%><%=country%><br>
+     <%=temperature%><br>
+      <img src="<%=url%>" onerror=null><br>
+      <%=description%>
+   </P>
+    <div class='temperaturedetails'>
+
+
+      <%=temp_max%><br>
+      <%=humidity%><br>
+      <%=pressure%><br>
+
+    </div>
+      <div class="description">
+        <%=temp_min%><br>
+        <%=visibility%><br>
+        <%=wind%>
+
+    </div>
+</div>
+
+</div>
+</body>
+<script>
+  $("#bt1").on('click', function() {
+  $("#formadduser").attr("action", "/");
+});
+  $("#bt2").on('click', function() {
+  $("#formadduser").attr("action", "/Advanced");
+});
+
+
+
+</script>
+
+<%- include("partials/footer");-%>
